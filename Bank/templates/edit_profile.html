@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Edit Profile</title>
+    <style>
+           html, body {
+    height: 100vh; /* Ensure the background gradient covers the entire page */
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(to right, #d3d3d3, #808080);
+}
+
+
+.center-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff; /* Changed to solid white */
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    z-index: 1; /* Ensure it is above background */
+}
+
+h1 {
+    color: #000; /* Set a contrasting color for visibility */
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center-box">
+            <h1><ins>Edit Profile</ins></h1>
+            <br><br>
+           <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+               <a href="{% url 'customer' %}">
+                   <button type="button" style="margin-left:290px;">BACK</button>
+               </a>
+</form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+

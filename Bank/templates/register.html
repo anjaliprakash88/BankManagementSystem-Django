@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Signup</title>
+    <style>
+      html, body {
+    height: 100vh; /* Ensure the background gradient covers the entire page */
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(to right, #d3d3d3, #808080);
+}
+
+
+.center-box {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff; /* Changed to solid white */
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    z-index: 1; /* Ensure it is above background */
+}
+
+h1 {
+    color: #000; /* Set a contrasting color for visibility */
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center-box">
+           <h1><ins>SIGN UP FORM</ins></h1>
+            <br><br>
+            <form method="post" action="{% url 'register' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">NAME</label>
+                <input type="text" class="form-control" id="exampleInputName" name="name" required minlength="2">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputAddress" class="form-label">ADDRESS</label>
+                <textarea class="form-control" id="exampleInputAddress" name="address" required minlength="5"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputImage" class="form-label">IMAGE</label>
+                <input type="file" class="form-control" id="exampleInputImage" name="image" accept="image/*">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputUsername" class="form-label">USERNAME</label>
+                <input type="text" class="form-control" id="exampleInputUsername" name="username" required minlength="4">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputPhone" class="form-label">PHONE</label>
+                <input type="tel" class="form-control" id="exampleInputPhone" name="phone" required pattern="[0-9]{10}" title="Phone number must be 10 digits">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">EMAIL</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputAge" class="form-label">AGE</label>
+                <input type="number" class="form-control" id="exampleInputAge" name="age" required min="18" max="100">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputDob" class="form-label">DOB</label>
+                <input type="date" class="form-control" id="exampleInputDob" name="dob" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputPancard" class="form-label">PANCARD</label>
+                <input type="text" class="form-control" id="exampleInputPancard" name="pancard" pattern="[A-Z]{5}[0-9]{4}[A-Z]" title="PANCARD must be in AAAAA9999A format" required>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputAdharcard" class="form-label">ADHARCARD</label>
+                <input type="number" class="form-control" id="exampleInputAdharcard" name="adharcard" required minlength="12" maxlength="12">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">PASSWORD</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required minlength="8">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputInitalAmount" class="form-label">INITIAL AMOUNT</label>
+                <input type="number" class="form-control" id="exampleInputInitalAmount" name="initial_amount" required min="500">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="mb-5" style="margin-top: 30px;">
+                <input type="submit" class="btn btn-primary" value="SIGN-UP" style="padding-left:100px; padding-right:100px; margin-left:150px;">
+            </div>
+        </div>
+    </div>
+</form>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3">
+                        <p style="margin-left:100px"><i>You Already Registered...please login:
+                            <a href="{% url 'home' %}">
+                                <button type="button" style="text-decoration: underline 2px solid blue; border:none">SIGN IN</button>
+                            </a>
+                        </i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

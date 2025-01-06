@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Signup</title>
+    <style>
+      html, body {
+    height: 100vh; /* Ensure the background gradient covers the entire page */
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(to right, #d3d3d3, #808080);
+}
+
+
+.center-box {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff; /* Changed to solid white */
+    padding: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    z-index: 1; /* Ensure it is above background */
+}
+
+h1 {
+    color: #000; /* Set a contrasting color for visibility */
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center-box" style="width:50%">
+           <h1><ins>USER PROFILE</ins></h1>
+            <br><br>
+
+             <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <img src=" {{ pro.image.url }}" width="50" height="100" class="card-img-top rounded-circle d-inline-block align-text-top" alt="...">
+                            <h5 style="text-align:center"> {{ pro.name }}</h5>
+                        </div>
+                    </div>
+                </div>
+            <br>
+
+
+            <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <h4>EMAIL</h4>
+                            <h5>{{ pro.email }}</h5>
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <h4>PHONE</h4>
+                            <h5> {{ pro.phone }}</h5>
+                        </div>
+                    </div>
+                </div>
+            <br>
+            <br>
+
+            <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <h4>AGE</h4>
+                            <h5> {{ pro.age }}</h5>
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <h4>ADDRESS</h4>
+                            <h5> {{ pro.address }}</h5>
+                        </div>
+                    </div>
+                </div>
+
+            <br>
+            <br>
+
+            <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <h4>USERNAME</h4>
+                            <h5>{{ pro.user_id.username }}</h5>
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <h4>ADHARCARD</h4>
+                            <h5> {{ pro.adharcard }}</h5>
+                        </div>
+                    </div>
+                </div>
+
+            <br>
+            <br>
+
+            <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <h4>PANCARD</h4>
+                            <h5> {{ pro.pancard }}</h5>
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <h4>DOB</h4>
+                            <h5>{{ pro.dob }}</h5>
+                        </div>
+                    </div>
+                </div>
+
+
+            <br>
+            <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <a href="{% url 'home' %}">
+                                <button type="button" style="text-decoration: underline 2px solid blue; border:none;"><a href="{% url 'edit_profile' pro.id %}">Edit Profile</a></button>
+                            </a>
+                        </div>
+                    </div>
+
+                   <div class="col-6">
+                        <div class="mb-3">
+                            <button type="button" style="text-decoration: underline 2px solid blue; border:none;"><a href="{% url 'customer' %}">Back</a></button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+</body>
+</html>
